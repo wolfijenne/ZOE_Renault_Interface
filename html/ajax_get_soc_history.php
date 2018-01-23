@@ -10,7 +10,7 @@ if (($_GET['vid']<>'') && (is_numeric($_GET['vid']))) {
 		if ($_GET['charging']==1) {
 			$start=$end-(3*3600);
 		} else {
-			$start=$end-(2*24*3600);
+			$start=$end-(3*24*3600);
 		}
 	}
 	$data=get_meas_data_timeframe($_GET['vid'],$start,$end,'ASC');
