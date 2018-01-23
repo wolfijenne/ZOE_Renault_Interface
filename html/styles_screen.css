@@ -1,0 +1,143 @@
+	body, div, h1, h2, h3, span, p {
+		font-family: Verdana,Arial,Helvetica,sans-serif;
+
+	}
+	.vehicle {
+		position: relative;
+		overflow: hidden;
+		left:10vw;
+		width:80vw;
+	}
+	.message {
+		background-color: #ffe5e5;
+		font-size:12px;
+		position: absolute;
+		top:60px;
+		right:-210px;
+		width:200px;
+		padding:4px;
+		z-index:1000;
+	}
+	.battery {
+		border:1px solid #13006e;
+		background-color:#f3fff3;
+		border-radius: 6px;
+		width:calc(100%-5px);
+		height:5vw;
+		position: relative;
+	}
+	.soc {
+		background-color: #00ff00;
+		position: absolute;
+		border-radius: 5px;
+		height:100%;
+		width:0%;
+		
+	}
+	.text {
+		position: absolute;
+		width:100%;
+		background-color: transparent;
+		text-align: center;
+		padding:12px 0 0 0;
+		font-size:32px;
+		line-height:12px;
+	}
+	.text span {
+		font-size:14px;
+		line-height: 120%;
+	}
+	body {
+		background-color:#fff;
+	}
+	ul.battinfo {
+		position: relative;
+		width:50vw;
+		list-style: none;
+		margin:0;
+		padding:0;
+	}
+	ul.battinfo li {
+		padding:5px 0 5px 10px;
+		display:flex;
+	}
+	ul.battinfo li div {
+		width:50%;
+	}
+	ul.battinfo .hidden {
+		display:none;
+	}
+	span.button {
+		padding:2px 15px 2px;
+		margin-right:20px;
+		background-color: #ff0;
+		border:1px solid #999;
+		border-radius: 6px;
+		font-size:12px;
+		cursor:pointer;
+		display:none;
+	}
+	span.button:hover {
+		background-color: #cc0;
+	}
+	ul.buttons {
+		display:flex;
+		position: relative;
+		margin:0;
+		padding:0;
+		list-style:none;
+		margin-top:10px;
+	}
+	ul.buttons li.button {
+		padding:5px 15px 5px;
+		margin-right:20px;
+		background-color: #ff0;
+		border:1px solid #999;
+		border-radius: 6px;
+		cursor:pointer;
+	}
+	ul.buttons li.button:hover {
+		background-color: #cc0;
+	}
+	.login_wrapper {
+		margin:20px auto;
+		width:300px;
+		position:relative;
+	}
+	.login_wrapper input[type=text],
+	.login_wrapper input[type=password] {
+		border:1px solid #999;
+		padding:6px 15px;
+		margin:15px 0;
+		border-radius: 5px;
+		display: block;
+	}
+	#soc_plot {
+		position: relative;
+		margin-top:40px;
+		height:30vw;
+		width:100%;
+	}
+	#soc_plot .flot-x-axis .flot-tick-label,
+	#soc_plot .flot-y-axis .flot-tick-label {
+		font-size:14px;
+	}
+	ul.liste {
+		display:table;
+		list-style: none;
+		margin:0;
+		padding:0;
+		margin-top:25px;
+
+	}
+	ul.liste li {
+		display: table-row;
+   	}
+	ul.liste li div {
+		display: table-cell;
+		padding:4px 25px 0 0;
+		font-size:14px;
+	}
+	ul.liste li.titel div {
+		font-weight: bold;
+	}

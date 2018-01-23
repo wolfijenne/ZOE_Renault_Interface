@@ -1,0 +1,35 @@
+	.vehicle {
+		left:2vw;
+		width:96%;
+	}
+	.battery {
+		height:45px;
+	}
+	.text {
+		font-size:22px;
+		padding-top:8px;
+	}
+	ul.battinfo {
+		width:100%;
+	}
+	ul.battinfo li div.titel {
+		width:70%;
+	}
+	ul.buttons {
+	}
+	ul.buttons li.button {
+		margin-right:10px;
+		text-align: center;
+	}
+	#soc_plot {
+		margin-top:20px;
+		width:100%;
+		height:60vw;
+	}
+	#soc_plot .flot-x-axis .flot-tick-label,
+	#soc_plot .flot-y-axis .flot-tick-label {
+		font-size:11px;
+	}
+	#ergebnisliste {
+		display:none;
+	}
