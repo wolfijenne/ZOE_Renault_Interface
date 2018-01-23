@@ -19,17 +19,16 @@ if (($_GET['vid']<>'') && (is_numeric($_GET['vid']))) {
 		print_r($data); 
 	echo "</pre>"; 
 */
-	
 	$i=0;
 	$j=0;
 	$first=array();
 	$second=array();
 	foreach ($data as $dat) {
-		$res['soc'][$i]=array(($dat['ze_time_stamp']*1000),$dat['ze_charge_level']);
+		$res['soc'][$i]=array((($dat['ze_time_stamp']+3600)*1000),$dat['ze_charge_level']);
 		$i++;
 		if ($dat['ze_charging']=='ja') {
 			if (($first['ze_charge_level']>0) && ($second['ze_charge_level']>0)) {
-				$res['power'][$j]=array(($dat['ze_time_stamp']*1000),((($dat['ze_charge_level']-$second['ze_charge_level'])*$vehicle[0]['nom_capacity']*$vehicle[0]['soh']/10000)/(($dat['ze_time_stamp']-$second['ze_time_stamp'])/3600)));
+				$res['power'][$j]=array((($dat['ze_time_stamp']+3600)*1000),((($dat['ze_charge_level']-$second['ze_charge_level'])*$vehicle[0]['nom_capacity']*$vehicle[0]['soh']/10000)/(($dat['ze_time_stamp']-$second['ze_time_stamp'])/3600)));
 			} else {
 				$res['power'][$j]=null;
 				if ($first['ze_charge_level']>0) {
@@ -58,7 +57,12 @@ if (($_GET['vid']<>'') && (is_numeric($_GET['vid']))) {
 			if (($data[$j]['ze_charging']<>'ja') && ($data[$j-1]['ze_charging']=='ja')) {
 				$ladungen[$i]['end']=$data[$j]['ze_time_stamp'];
 				$soc_end=$data[$j]['ze_charge_level'];
-				$ladungen_html.='<option start="'.$ladungen[$i]['start'].'" end="'.$ladungen[$i]['end'].'">'.date('d.m.Y H:i',$ladungen[$i]['start']).' : '.$soc_start.'% - '.$soc_end.'%</option>';
+				if ($start==$ladungen[$i]['start']) {
+					$selected=" selected";
+				} else {
+					$selected="";
+				}
+				$ladungen_html.='<option value="'.$i.'" start="'.$ladungen[$i]['start'].'" end="'.$ladungen[$i]['end'].'"'.$selected.'>'.date('d.m.Y H:i',$ladungen[$i]['start']).' : '.$soc_start.'% - '.$soc_end.'%</option>';
 				$i++;
 			}
 		}

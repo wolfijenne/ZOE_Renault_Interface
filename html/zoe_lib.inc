@@ -52,7 +52,7 @@ function get_meas_data_timestamp($id_vehicle,$timestamp) {
 	return map_single($res);
 }
 function get_meas_data_timeframe($id_vehicle,$start,$end,$sort) {
-	$text="SELECT * FROM vehicle_measurements WHERE id_vehicle='".$id_vehicle."' AND ze_time_stamp>".$start." AND ze_time_stamp<".$end." ORDER BY ze_time_stamp ".$sort;
+	$text="SELECT * FROM vehicle_measurements WHERE id_vehicle='".$id_vehicle."' AND ze_time_stamp>=".$start." AND ze_time_stamp<=".$end." ORDER BY ze_time_stamp ".$sort;
 	$res=make_query($text);
 	return map_list($res);
 }
