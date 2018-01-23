@@ -7,7 +7,9 @@ $(document).ready(
 		var mobile_xticks=5;
 		var desktop_xticks=11;
 		var mobile_switch_width=641;
+		var mobile_switch_width_plot=750;
 		var xticks;
+		var plot;
 		make_main_interval();
 		$(".button").click(function(){
 			var el=$(this);
@@ -84,7 +86,7 @@ $(document).ready(
 					}
 					d1=daten['soc'];
 					d2=daten['power'];
-					var plot = $("#soc_plot").plot(
+					plot = $("#soc_plot").plot(
 						[ 	
 							{ 
 								data: d1,
@@ -96,11 +98,14 @@ $(document).ready(
 							}
 						],
 						{ 
-							yaxis: { min: 0 , max: 100 , ticks: 11 },
-							xaxis: { mode: "time", timeformat: "%d.%m. %H:%M",ticks:xticks },
-							colors: ["#0f0","#f00" ]
+							yaxis: { min: 0 , max: 100 , ticks: 11, zoomRange: [0.1, 10], panRange:[0,100] },
+							xaxis: { min: (d1[(d1.length-1)][0]-3000*24*3600), max: d1[(d1.length-1)][0], mode: "time", timeformat: "%d.%m. %H:%M",ticks:xticks, zoomRange: [0.1, 10] , panRange: [d1[0][0],d1[(d1.length-1)][0]] },
+							colors: ["#0f0","#f00" ],
+							zoom: { interactive: false },
+							pan: { interactive: true }
+							
 						}						
-					);
+					);		
 					$("#ladungen .pulldown").html(daten['ladungen']);
 					
 
@@ -117,12 +122,15 @@ $(document).ready(
 			});
 		}
 		$(window).resize(function(){
+/*
 			clearTimeout(resize_timeout);
 			resize_timeout=setTimeout(function(){
+				window_width=$(window).width();
 				$(".vehicle").each(function(i){
 					get_soc_history($(this).attr("id"),0,0);
 				});
 			},500);
+*/
 		});
 		function get_soc_history(vid,start,end) {
 			if (start>0) {
@@ -145,7 +153,7 @@ $(document).ready(
 					}
 					d1=daten['soc'];
 					d2=daten['power'];
-					var plot = $("#soc_plot").plot(
+					plot = $("#soc_plot").plot(
 						[ 	
 							{ 
 								data: d1,
@@ -158,7 +166,7 @@ $(document).ready(
 						],
 						{ 
 							yaxis: { min: 0 , max: 100 , ticks: 11 },
-							xaxis: { mode: "time", timeformat: "%d.%m. %H:%M",ticks:xticks },
+							xaxis: { min: (d1[0][0]), max: d1[(d1.length-1)][0],mode: "time", timeformat: "%d.%m. %H:%M",ticks:xticks },
 							colors: ["#0f0","#f00" ]
 						}						
 					);

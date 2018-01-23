@@ -9,7 +9,9 @@
 		<script src="js/myjscode.js"></script>
 		<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
 		<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.time.js"></script>
-		<link rel="stylesheet" type="text/css" href="js/morris.js-0.5.1/morris.css" />
+		<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.resize.js"></script>
+		<script language="javascript" type="text/javascript" src="js/flot/flot_nav/lib/jquery.flot.navigate.js"></script>
+		<script language="javascript" type="text/javascript" src="js/flot/flot_nav/jquery.flot.navigationControl.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles_screen.css">
 		<link rel="stylesheet" type="text/css" media="screen and (max-width: 750px)" href="styles_mobile.css">
 	  <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
