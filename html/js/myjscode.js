@@ -75,9 +75,11 @@ $(document).ready(
 					if (daten.charging=='ja') {
 						$(".vehicle#"+vid).find(".hidden").slideDown(200);
 						$(".vehicle#"+vid).attr("charging",1);
+						var start=daten['soc'][0][0];
 					} else {
 						$(".vehicle#"+vid).find(".hidden").slideUp(200);
 						$(".vehicle#"+vid).attr("charging",0);
+						var start=daten['soc'][daten['soc'].length-1][0]-3000*24*3600;
 					}
 					if (window_width<mobile_switch_width) {
 						xticks=mobile_xticks;
@@ -90,7 +92,7 @@ $(document).ready(
 						[ 	
 							{ 
 								data: d1,
-								lines: { fill: true, show: true, fillColor: "rgba(0, 255, 0, 0.6)" },
+								lines: { fill: true, show: true, fillColor: "rgba(0, 255, 0, 0.5)" },
 								points: { fill: true, show: true}
 							},{ 
 								data: d2,
@@ -99,7 +101,7 @@ $(document).ready(
 						],
 						{ 
 							yaxis: { min: 0 , max: 100 , ticks: 11, zoomRange: [0.1, 10], panRange:[0,100] },
-							xaxis: { min: (d1[(d1.length-1)][0]-3000*24*3600), max: d1[(d1.length-1)][0], mode: "time", timeformat: "%d.%m. %H:%M",ticks:xticks, zoomRange: [0.1, 10] , panRange: [d1[0][0],d1[(d1.length-1)][0]] },
+							xaxis: { min: start, max: d1[(d1.length-1)][0], mode: "time", timeformat: "%d.%m. %H:%M",ticks:xticks, zoomRange: [0.1, 10] , panRange: [d1[0][0],d1[(d1.length-1)][0]] },
 							colors: ["#0f0","#f00" ],
 							zoom: { interactive: false },
 							pan: { interactive: true }
@@ -157,7 +159,7 @@ $(document).ready(
 						[ 	
 							{ 
 								data: d1,
-								lines: { fill: true, show: true, fillColor: "rgba(0, 255, 0, 0.6)" },
+								lines: { fill: true, show: true, fillColor: "rgba(0, 255, 0, 0.5)" },
 								points: { fill: true, show: true}
 							},{ 
 								data: d2,

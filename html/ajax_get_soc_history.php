@@ -7,7 +7,7 @@ if (($_GET['vid']<>'') && (is_numeric($_GET['vid']))) {
 		$end=$_GET['end'];
 	} else {
 		$end=time();
-		if ($_GET['charging']==1) {
+		if (($_GET['charging']==1) || ($charging=='ja')) {
 			$start=$end-(3*3600);
 		} else {
 			$start=10;
